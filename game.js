@@ -4,8 +4,8 @@ class Game {
     this.deckOfCards = deckOfCards;
   }
 
-  func(input) {
-    // code;
+  dealCard(player) {
+    player.acceptCard(this.deckOfCards.shift());
   }
 
 

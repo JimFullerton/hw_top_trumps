@@ -27,7 +27,7 @@ describe('Trumps', () => {
     game = new Game(deckOfCards);
   });
 
-  test('game should initialise with full deck of cards', () => {
+  test('the game should initialise with full deck of cards', () => {
     expect(game.deckOfCards).toBe(deckOfCards);
   });
 
@@ -45,6 +45,23 @@ describe('Trumps', () => {
 
   test('a card should have an agility rating', () => {
     expect(card6.agility).toBe(6);
+  });
+
+  test('a player should be able to accept a card', () => {
+    player1.acceptCard(card5);
+    expect(player1.cards[0]).toBe(card5);
+  });
+
+  test('the game should be able to deal a card from its deck', () => {
+    game.dealCard(player2);
+    expect(player2.cards[0]).toBe(card1);
+  });
+
+  test('a player should be able to play a card', () => {
+    game.dealCard(player1);
+    game.dealCard(player1);
+    player1.playCard();
+    expect(player1.cards.length).toBe(1);
   });
 
 

@@ -9,11 +9,11 @@ class Player {
   }
 
   playCard() {
-    // code;
+    return this.cards.shift();
   }
 
   acceptCard(card) {
-    // code;
+    this.cards.push(card);
   }
 
 
