@@ -31,5 +31,22 @@ describe('Trumps', () => {
     expect(game.deckOfCards).toBe(deckOfCards);
   });
 
+  test('card should have a name', () => {
+    expect(card1.name).toBe('Superman');
+  });
+
+  test('a card should have an intelligence rating', () => {
+    expect(card2.intelligence).toBe(7);
+  });
+
+  test('a card should have a strength rating', () => {
+    expect(card3.strength).toBe(6);
+  });
+
+  test('a card should have an agility rating', () => {
+    expect(card6.agility).toBe(6);
+  });
+
+
 
 });
