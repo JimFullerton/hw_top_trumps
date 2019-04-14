@@ -24,7 +24,7 @@ describe('Trumps', () => {
     card5 = new Card('Wonder Woman', 8, 7, 5);
     card6 = new Card('Batman', 10, 5, 6);
     deckOfCards = [card1, card2, card3, card4, card5, card6];
-    game = new Game(deckOfCards);
+    game = new Game(deckOfCards, player1, player2);
   });
 
   test('the game should initialise with full deck of cards', () => {
@@ -63,6 +63,24 @@ describe('Trumps', () => {
     player1.playCard();
     expect(player1.cards.length).toBe(1);
   });
+
+  test('the game should be able to ask a player to play a card', () => {
+    game.dealCard(player2);
+    expect(game.askForCard(player2)).toBe(card1);
+  });
+
+  test('a player should be able to choose a category', () => {
+    game.dealCard(player2);
+    expect(player2.pickCategory()).toBe("strength");
+  });
+
+  test('the game should be able to decide on a winner for a round', () => {
+    game.dealCard(player1);
+    game.dealCard(player2);
+    expect(game.decideWinnerRound("agility")).toEqual(player1);
+  });
+
+
 
 
 
